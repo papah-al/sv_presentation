@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WFM Transformation Journey</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        .slide-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(30px) scale(0.98);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+        
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0) scale(1);
+            z-index: 10;
+        }
+        
+        /* Custom scrollbar untuk estetika yang lebih rapi */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.02); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.15); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,0,0,0.25); 
+        }
+    </style>
+</head>
+<body class="h-screen w-screen bg-slate-100 flex flex-col font-sans text-slate-900 overflow-hidden selection:bg-indigo-100">
+
+    <!-- Top Progress Bar -->
+    <div class="h-1 bg-slate-200 w-full shrink-0 z-50">
+        <div id="progress-bar" class="h-full bg-indigo-600 transition-all duration-300" style="width: 16%;"></div>
+    </div>
+
+    <!-- Main Presentation Area -->
+    <main class="flex-1 flex overflow-hidden items-center justify-center p-2 md:p-6 lg:p-8">
+        <div class="w-full max-w-7xl h-full flex flex-col bg-slate-50/50 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200 overflow-hidden relative isolate">
+            
+            <div class="flex-1 overflow-hidden relative slide-container" id="slides-wrapper">
+                
+                <!-- SLIDE 1: Judul Utama -->
+                <div class="slide active p-4 md:p-8">
+                    <div class="flex-1 flex flex-col items-center justify-center text-center max-w-3xl mx-auto space-y-6">
+                        <div class="w-20 h-20 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center shadow-sm border border-indigo-100 mb-4 transition-transform hover:scale-105">
+                            <i data-lucide="lightbulb" class="w-10 h-10"></i>
+                        </div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                            WFM Transformation Journey
+                        </h1>
+                        <p class="text-lg md:text-xl text-slate-500 font-medium max-w-2xl">
+                            Process Improvements & Next Generation Tooling
+                        </p>
+                        <button onclick="nextSlide()" class="mt-8 flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-colors shadow-sm active:scale-95">
+                            Start Presentation <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2: HC Management -->
+                <div class="slide p-4 md:p-8">
+                    <div class="flex flex-col h-full max-h-full space-y-4">
+                        <header class="shrink-0 flex items-center gap-4 pb-4 border-b border-slate-200">
+                            <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg shrink-0">
+                                <i data-lucide="users" class="w-6 h-6"></i>
+                            </div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">HC Management</h2>
+                        </header>
+
+                        <!-- Primary Task -->
+                        <div class="shrink-0 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Primary Task</h3>
+                            <div class="font-semibold text-slate-800 space-y-2 text-sm leading-relaxed text-slate-700">
+                                <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Update data HC CCS Weekly from PIC PJ.</span></div>
+                                <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Recon data HC CCS with data HC HR</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Grid -->
+                        <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 min-h-0 pb-2 h-full">
+                            <!-- Before -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-red-200/60 shadow-sm min-h-[150px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-red-50 text-red-700 border-red-100">
+                                    <i data-lucide="history" class="w-4 h-4 shrink-0"></i> Before Condition
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Update data from Excel files submitted by email from PIC project.</span></div>
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Rarely update for recon data HC CCS with data HC HR.</span></div>
+                                </div>
+                            </div>
+                            <!-- Current -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-amber-200/60 shadow-sm min-h-[150px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-amber-50 text-amber-700 border-amber-100">
+                                    <i data-lucide="target" class="w-4 h-4 shrink-0"></i> Current Condition
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Update data from Excel files submitted by email from PIC project.</span></div>
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Recon data from Excel files submitted by PIC HR update every weekly or 2 weekly.</span></div>
+                                </div>
+                            </div>
+                            <!-- Next -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-indigo-200/60 shadow-sm min-h-[150px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-indigo-50 text-indigo-700 border-indigo-100">
+                                    <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i> Next Plan
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Transform to web based (Transforce - HC Management).</span></div>
+                                </div>
+                            </div>
+                            <!-- Goals -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-emerald-200/60 shadow-sm min-h-[150px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-emerald-50 text-emerald-700 border-emerald-100">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 shrink-0"></i> Goals / Outcomes
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Add features (HR cost calculations, billing calculations, scheduling, and integration with other applications) and expanded user access across departments.</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3: Seat Mapping -->
+                <div class="slide p-4 md:p-8">
+                    <div class="flex flex-col h-full max-h-full space-y-4">
+                        <header class="shrink-0 flex items-center gap-4 pb-4 border-b border-slate-200">
+                            <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg shrink-0">
+                                <i data-lucide="map" class="w-6 h-6"></i>
+                            </div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">Seat Mapping & Occupancy</h2>
+                        </header>
+
+                        <!-- Primary Task -->
+                        <div class="shrink-0 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Primary Task</h3>
+                            <div class="font-semibold text-slate-800 space-y-2 text-sm leading-relaxed text-slate-700">
+                                <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Update Seat Mapping & Occupancy Monthly</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Grid -->
+                        <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 min-h-0 pb-2 h-full">
+                            <!-- Before -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-red-200/60 shadow-sm">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-red-50 text-red-700 border-red-100">
+                                    <i data-lucide="history" class="w-4 h-4 shrink-0"></i> Before Condition
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Update data from Excel files submitted by email from PIC Dept. / Div.</span></div>
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Longer submission around the 20th–25th of each month.</span></div>
+                                </div>
+                            </div>
+                            <!-- Current -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-amber-200/60 shadow-sm">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-amber-50 text-amber-700 border-amber-100">
+                                    <i data-lucide="target" class="w-4 h-4 shrink-0"></i> Current Condition
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Update data from Excel files submitted by email from PIC Dept. / Div.</span></div>
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>More work is done max 20th to 25th of each month.</span></div>
+                                </div>
+                            </div>
+                            <!-- Next -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-indigo-200/60 shadow-sm">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-indigo-50 text-indigo-700 border-indigo-100">
+                                    <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i> Next Plan
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Transform to web based (Transforce - Seat Mapping & Occupancy)</span></div>
+                                </div>
+                            </div>
+                            <!-- Goals -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-emerald-200/60 shadow-sm">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-emerald-50 text-emerald-700 border-emerald-100">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 shrink-0"></i> Goals / Outcomes
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Add features (Facility cost calculations, asset management, and integration with other applications) and expanded user access across departments.</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 4: Billing -->
+                <div class="slide p-4 md:p-8">
+                    <div class="flex flex-col h-full max-h-full space-y-4">
+                        <header class="shrink-0 flex items-center gap-4 pb-4 border-b border-slate-200">
+                            <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg shrink-0">
+                                <i data-lucide="receipt" class="w-6 h-6"></i>
+                            </div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">Billing</h2>
+                        </header>
+
+                        <div class="shrink-0 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Primary Task</h3>
+                            <div class="font-semibold text-slate-800 space-y-2 text-sm leading-relaxed text-slate-700">
+                                <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Billing Checking & Creation (Max. Potential vs Accrual / Actual Comparison).</span></div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 min-h-0 pb-2 h-full">
+                            <!-- Before -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-red-200/60 shadow-sm min-h-[120px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-red-50 text-red-700 border-red-100">
+                                    <i data-lucide="history" class="w-4 h-4 shrink-0"></i> Before Condition
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Submission direct from UM / GM to Sales Support.</span></div>
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>There is no calculation of billing performance.</span></div>
+                                </div>
+                            </div>
+                            <!-- Current -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-amber-200/60 shadow-sm min-h-[120px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-amber-50 text-amber-700 border-amber-100">
+                                    <i data-lucide="target" class="w-4 h-4 shrink-0"></i> Current Condition
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Submission from UM / GM to WFM for checking and creation and submitted to Sales Support.</span></div>
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Create calculation of billing performance (Max. Potential vs Accrual / Actual Comparison).</span></div>
+                                </div>
+                            </div>
+                            <!-- Next -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-indigo-200/60 shadow-sm min-h-[120px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-indigo-50 text-indigo-700 border-indigo-100">
+                                    <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i> Next Plan
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Can use data output from Trasforce or Excel template for each project on a daily basis.</span></div>
+                                </div>
+                            </div>
+                            <!-- Goals -->
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-emerald-200/60 shadow-sm min-h-[120px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-emerald-50 text-emerald-700 border-emerald-100">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 shrink-0"></i> Goals / Outcomes
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Efficient processing in line with the sales support timeline, with more optimal and accurate billing.</span></div>
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Centralized Billing Checking & Creation by WFM for all project.</span></div>
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Developing a tool that makes it easier for management to access and analyze billing performance.</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 5: Profit & Loss -->
+                <div class="slide p-4 md:p-8">
+                    <div class="flex flex-col h-full max-h-full space-y-4">
+                        <header class="shrink-0 flex items-center gap-4 pb-4 border-b border-slate-200">
+                            <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg shrink-0">
+                                <i data-lucide="line-chart" class="w-6 h-6"></i>
+                            </div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">Profit & Loss (PL)</h2>
+                        </header>
+
+                        <div class="shrink-0 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Primary Task</h3>
+                            <div class="font-semibold text-slate-800 space-y-2 text-sm leading-relaxed text-slate-700">
+                                <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Checking Budget vs Actual PL Monthly and create gap analysis.</span></div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 min-h-0 pb-2 h-full">
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-red-200/60 shadow-sm min-h-[130px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-red-50 text-red-700 border-red-100">
+                                    <i data-lucide="history" class="w-4 h-4 shrink-0"></i> Before Condition
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Dashboard tool provide by Finance Division.</span></div>
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Delayed changed if any update of organizational structure during the current year.</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-amber-200/60 shadow-sm min-h-[130px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-amber-50 text-amber-700 border-amber-100">
+                                    <i data-lucide="target" class="w-4 h-4 shrink-0"></i> Current Condition
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Raw data from Finance Division, dashboard tool provide by WFM (custom with UM / GM visibility).</span></div>
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Adaptive with changes in organizational structure.</span></div>
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Developing additional template for summary gap analysis (Budget vs Forcast vs Actual).</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-indigo-200/60 shadow-sm min-h-[130px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-indigo-50 text-indigo-700 border-indigo-100">
+                                    <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i> Next Plan
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Transform to web based (Transforce - PL Dashboard & Analysis).</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col rounded-xl border overflow-hidden bg-white border-emerald-200/60 shadow-sm min-h-[130px]">
+                                <div class="px-4 py-3 border-b flex items-center gap-2 font-bold text-sm shrink-0 bg-emerald-50 text-emerald-700 border-emerald-100">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 shrink-0"></i> Goals / Outcomes
+                                </div>
+                                <div class="p-4 flex-1 overflow-y-auto space-y-2.5 text-sm leading-relaxed text-slate-700">
+                                    <div class="flex items-start gap-3"><div class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div><span>Developing a tool that makes it easier for user and management to access, analyze and make forcast / target PL.</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 6: Tools Created (List Style) -->
+                <div class="slide p-4 md:p-8">
+                    <div class="flex flex-col h-full max-w-4xl mx-auto w-full">
+                        <header class="shrink-0 flex items-center justify-center gap-4 pb-6 mb-6 border-b border-slate-200">
+                            <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl shadow-sm border border-indigo-200/50">
+                                <i data-lucide="pen-tool" class="w-8 h-8"></i>
+                            </div>
+                            <h2 class="text-3xl lg:text-4xl font-bold text-slate-800">Tools Created</h2>
+                        </header>
+                        
+                        <div class="flex-1 overflow-y-auto pb-4">
+                            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 h-full max-h-full">
+                                <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                                    <i data-lucide="check-circle-2" class="w-6 h-6 text-emerald-500"></i>
+                                    Tools created by WFM Team:
+                                </h3>
+                                
+                                <div class="space-y-4">
+                                    <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl flex items-start gap-4 hover:border-indigo-300 transition-colors shadow-sm cursor-default hover:bg-white hover:shadow-md group">
+                                        <div class="mt-0.5 bg-indigo-100 text-indigo-700 font-bold w-7 h-7 rounded-full flex items-center justify-center text-sm flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">1</div>
+                                        <span class="text-slate-700 font-medium leading-relaxed text-base">Excel template for Max. Potential vs Accrual / Actual Billing Comparison.</span>
+                                    </div>
+                                    
+                                    <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl flex items-start gap-4 hover:border-indigo-300 transition-colors shadow-sm cursor-default hover:bg-white hover:shadow-md group">
+                                        <div class="mt-0.5 bg-indigo-100 text-indigo-700 font-bold w-7 h-7 rounded-full flex items-center justify-center text-sm flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">2</div>
+                                        <span class="text-slate-700 font-medium leading-relaxed text-base">PL Dashboard (Macro Excel).</span>
+                                    </div>
+                                    
+                                    <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl flex items-start gap-4 hover:border-indigo-300 transition-colors shadow-sm cursor-default hover:bg-white hover:shadow-md group">
+                                        <div class="mt-0.5 bg-indigo-100 text-indigo-700 font-bold w-7 h-7 rounded-full flex items-center justify-center text-sm flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">3</div>
+                                        <span class="text-slate-700 font-medium leading-relaxed text-base">MPP / Forecast vs Actual HC and Seat Plan / Forecast vs Seat Actual Dashboard (Macro Excel).</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer / Controls -->
+            <footer class="h-16 border-t border-slate-200 bg-white px-4 md:px-8 shrink-0 flex items-center justify-between text-sm z-50 rounded-b-2xl">
+                
+                <!-- Tombol Prev -->
+                <button id="btn-prev" onclick="prevSlide()" class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-100 text-slate-700 active:scale-95 border border-transparent hover:border-slate-200">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Previous</span>
+                </button>
+                
+                <!-- Dots indicator -->
+                <div class="flex items-center gap-2" id="dots-container">
+                    <!-- Dots otomatis di-generate oleh Javascript -->
+                </div>
+
+                <!-- Tombol Next -->
+                <button id="btn-next" onclick="nextSlide()" class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all disabled:opacity-40 disabled:cursor-not-allowed bg-indigo-50 border border-indigo-100 text-indigo-700 hover:bg-indigo-600 hover:text-white active:scale-95 group">
+                    <span class="hidden sm:inline" id="btn-next-text">Start</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+                
+            </footer>
+        </div>
+    </main>
+
+    <!-- Javascript File Control -->
+    <script>
+        // Inisialisasi library icon (Lucide)
+        lucide.createIcons();
+
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const dotsContainer = document.getElementById('dots-container');
+        const progressBar = document.getElementById('progress-bar');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+        const btnNextText = document.getElementById('btn-next-text');
+
+        // Render Navigation Dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = `h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'w-8 bg-indigo-600' : 'w-2 bg-slate-300 hover:bg-slate-400'}`;
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+
+        // Fungsi memperbarui Tampilan UI saat slide berganti
+        function updateUI() {
+            // Update tampilan slide dan transisinya
+            slides.forEach((slide, index) => {
+                if (index === currentIndex) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                    // Tambahkan arah efek agar terasa bergeser (Kiri / Kanan)
+                    if (index < currentIndex) {
+                        slide.style.transform = 'translateX(-30px) scale(0.98)';
+                    } else {
+                        slide.style.transform = 'translateX(30px) scale(0.98)';
+                    }
+                }
+            });
+
+            // Update indikator titik / dots
+            const dots = dotsContainer.children;
+            for (let i = 0; i < dots.length; i++) {
+                if (i === currentIndex) {
+                    dots[i].className = 'h-2 rounded-full transition-all duration-300 w-8 bg-indigo-600 cursor-default';
+                } else {
+                    dots[i].className = 'h-2 rounded-full transition-all duration-300 w-2 bg-slate-300 hover:bg-slate-400 cursor-pointer';
+                }
+            }
+
+            // Update lebar progress bar yang di bagian paling atas head
+            progressBar.style.width = `${((currentIndex + 1) / totalSlides) * 100}%`;
+
+            // Atur status button disable enable
+            btnPrev.disabled = currentIndex === 0;
+            btnNext.disabled = currentIndex === totalSlides - 1;
+            
+            // Ubah text dari tombol Next ketika ada di hal pertama
+            if (currentIndex === 0) {
+                btnNextText.textContent = 'Start';
+            } else {
+                btnNextText.textContent = 'Next';
+            }
+        }
+
+        // Action Klik tombol Next
+        function nextSlide() {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+                updateUI();
+            }
+        }
+
+        // Action Klik tombol Prev
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateUI();
+            }
+        }
+
+        // Action Klik pada titik indikator dots
+        function goToSlide(index) {
+            currentIndex = index;
+            updateUI();
+        }
+
+        // Tambahkan fungsi pindah Slide dengan memencet Panah Kiri dan Panah kanan di Keyboard laptop Anda
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Trigger setingan renderan awal
+        updateUI();
+    </script>
+</body>
+</html>
