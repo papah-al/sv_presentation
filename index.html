@@ -379,6 +379,112 @@
                 </div>
 
 
+
+                  <!-- ==================== SLIDE 8 ==================== -->
+  <div class="slide-section">
+    <h2>Slide 8: Billing Recap</h2>
+    <div class="p-4 bg-slate-200 rounded-xl flex items-center justify-center overflow-hidden h-[600px] relative">
+       <!-- SLIDE 8: Billing Recap & Performance -->
+{/* --- RECAP SLIDE --- */}
+                
+                  <div class="flex flex-col h-full space-y-4">
+                    {/* Header */}
+                    <header class="shrink-0 flex items-center gap-4 pb-4 border-b border-slate-200">
+                      <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-lg shrink-0">
+                        {slide.icon && <!-- Icon here -->}
+                      </div>
+                      <h2 class="text-2xl md:text-3xl font-bold text-slate-800 tracking-tight">{slide.title}</h2>
+                    </header>
+
+                    <div class="flex-1 flex flex-col gap-4 overflow-hidden">
+                       <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden min-h-[50%] flex flex-col">
+                         <div class="px-4 py-3 bg-slate-50 border-b border-slate-100 font-bold text-slate-700 text-sm">
+                           Submission Date Table
+                         </div>
+                         <div class="flex-1 p-2 overflow-auto text-[8px] sm:text-[9px] md:text-[10px]">
+                           <table class="w-full text-left border-collapse border border-slate-300">
+                             <thead>
+                               <tr>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50" rowspan={3}>No</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50" rowspan={3}>Project</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50" rowspan={3}>PIC</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50" colspan={4}>Mar 26</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50" colspan={4}>Apr 26</th>
+                               </tr>
+                               <tr>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50" colspan={2}>Submission date</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50" rowspan={2}>Status</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50" rowspan={2}>Remarks</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50" colspan={2}>Submission date</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50" rowspan={2}>Status</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50" rowspan={2}>Remarks</th>
+                               </tr>
+                               <tr>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50">Closing Finance</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50">Send Email</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50">Closing Finance</th>
+                                 <th class="border border-slate-300 px-2 py-1 text-center bg-slate-50">Send Email</th>
+                               </tr>
+                             </thead>
+                             <tbody>
+                               {(Array.from({ length: 18 })).map((_, i) => (
+                                 <tr key={i} class="bg-white">
+                                   <td class="border border-slate-300 px-2 py-1 text-right">{i + 1}</td>
+                                   <td class="border border-slate-300 px-2 py-1 text-nowrap">{["Tiktok TnS", "Tiktok GEC MOD", "Tiktok GEC PQL", "Tiktok GEC KG", "Tiktok GEC SEA", "Tiktok GEC SEMI", "Tiktok GEC CS", "Tiktok GEC SPG", "Tiktok GEC- SPS", "Tiktok BNPL", "Shein", "Lazada", "Lazada Bizrisk", "Anker", "Temu YGY", "Trip.com", "MAP", "Tiket.com"][i]}</td>
+                                   <td class="border border-slate-300 px-2 py-1">{i === 10 ? "Dwi" : "Heru"}</td>
+                                   <td class="border border-slate-300 px-2 py-1 text-right">02 Apr 2026</td>
+                                   <td class="border border-slate-300 px-2 py-1 text-right">{[0,4,5,9,10].includes(i) ? "01 Apr 2026" : "02 Apr 2026"}</td>
+                                   <td class="border border-slate-300 px-2 py-1">On time</td>
+                                   <td class="border border-slate-300 px-2 py-1"></td>
+                                   <td class="border border-slate-300 px-2 py-1 text-right">04 May 2026</td>
+                                   <td class="border border-slate-300 px-2 py-1 text-right">{[0,4,5,9,10,11,12,13,14,15,16,17].includes(i) ? "30 Apr 2026" : "01 May 2026"}</td>
+                                   <td class="border border-slate-300 px-2 py-1">On time</td>
+                                   <td class="border border-slate-300 px-2 py-1"></td>
+                                 </tr>
+                               )
+                             </tbody>
+                           </table>
+                         </div>
+                       </div>
+                       
+                       <div class="flex-1 grid grid-cols-2 gap-4 min-h-[160px]">
+                         {/* Chart 1 */}
+                         <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-col items-center justify-center relative overflow-hidden">
+                           <h4 class="text-slate-600 font-bold mb-4 z-10 text-xs sm:text-sm">BAK SUBMIT BY PIC</h4>
+                           <div class="relative w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 z-10 mt-2 mb-6">
+                             {/* CSS Pie Chart */}
+                             <div class="absolute inset-0 rounded-full" style={{ background: 'conic-gradient(#e27d3c 0% 6%, #0f4c75 6% 100%)', transform: 'rotateX(50deg)', boxShadow: '0 8px 0 #083b5f' }}></div>
+                             {/* Small shadow/3D effect */}
+                             <div class="absolute left-[38%] -bottom-4 bg-white border border-slate-300 text-slate-500 px-1 py-0.5 text-[10px]">94%</div>
+                             <div class="absolute left-[38%] -top-4 bg-white border border-slate-300 text-slate-500 px-1 py-0.5 text-[10px]">6%</div>
+                           </div>
+                           <div class="flex gap-4 mt-auto text-[10px] sm:text-xs text-slate-500 z-10">
+                             <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-[#0f4c75]"></span> HERU</div>
+                             <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-[#e27d3c]"></span> DWI</div>
+                           </div>
+                         </div>
+                         {/* Chart 2 */}
+                         <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-col items-center justify-center relative overflow-hidden">
+                           <h4 class="text-slate-600 font-bold mb-4 z-10 text-xs sm:text-sm">BAK SUBMISSION DATE</h4>
+                           <div class="relative w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 z-10 mt-2 mb-6">
+                             {/* CSS Pie Chart */}
+                             <div class="absolute inset-0 rounded-full" style={{ background: '#0f4c75', transform: 'rotateX(50deg)', boxShadow: '0 8px 0 #083b5f' }}></div>
+                             <div class="absolute left-[40%] -bottom-4 bg-white border border-slate-300 text-slate-500 px-1 py-0.5 text-[10px]">100%</div>
+                           </div>
+                           <div class="flex gap-4 mt-auto text-[10px] sm:text-xs text-slate-500 z-10">
+                             <div class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-[#0f4c75]"></span> ON TIME</div>
+                           </div>
+                         </div>
+                       </div>
+                    </div>
+                  </div>
+                )}
+
+
+    </div>
+  </div>
+
+                
                 
                 <!-- SLIDE 9: Profit & Loss -->
                 <div class="slide p-4 md:p-8">
