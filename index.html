@@ -380,7 +380,254 @@
 
 
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Recap & Performance</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Gaya dasar */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6fa; /* Warna background sesuai gambar */
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Scrollbar tabel */
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .table-container::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.02); 
+            border-radius: 4px;
+        }
+        .table-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+
+        /* Pie Chart dengan CSS (Tanpa Chart.js agar ringan) */
+        .chart-pie-1 {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(#e97a3a 0% 6%, #0f4c75 6% 100%);
+        }
+        .chart-pie-2 {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #0f4c75;
+        }
+
+        /* Garis tabel */
+        th { border-color: #e2e8f0; border-width: 1px; }
+        td { border-color: #e2e8f0; border-width: 1px; }
+    </style>
+</head>
+<body class="h-screen w-screen flex items-center justify-center overflow-hidden">
+
+    <!-- Container Utama Slide -->
+    <div class="w-full max-w-[1400px] h-full p-4 md:p-6 lg:p-8 flex flex-col overflow-hidden">
+        
+        <!-- HEADER -->
+        <div class="flex items-start gap-4 mb-4 shrink-0">
+            <!-- Icon -->
+            <div class="p-3 bg-indigo-50 text-indigo-700 rounded-xl shrink-0 border border-indigo-100 shadow-sm">
+                <i data-lucide="pie-chart" class="w-8 h-8"></i>
+            </div>
+            <!-- Judul -->
+            <div class="flex flex-col">
+                <h1 class="text-3xl lg:text-4xl font-extrabold text-[#1a2b4b] tracking-tight leading-tight">
+                    Billing Recap & Performance
+                </h1>
+                <p class="text-slate-500 font-medium text-sm lg:text-base mt-1">
+                    Monthly submission monitoring and performance overview
+                </p>
+            </div>
+        </div>
+
+        <!-- BAGIAN UTAMA: TABEL + CHART -->
+        <main class="flex-1 flex flex-col gap-4 overflow-hidden">
+            
+            <!-- TABEL -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col flex-1 min-h-[250px]">
+                <!-- Judul Tabel + Badge -->
+                <div class="px-5 py-3.5 flex items-center justify-between border-b border-slate-200 shrink-0 bg-white">
+                    <h3 class="font-bold text-[#1a2b4b] text-base">Submission Date Monitoring</h3>
+                    <div class="bg-[#e6f6ec] text-[#1aa053] font-bold text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-[#c3ebce]">
+                        100% On Time
+                    </div>
+                </div>
+                
+                <!-- Isi Tabel -->
+                <div class="flex-1 overflow-auto table-container">
+                    <table id="data-table" class="w-full text-left border-collapse text-[11px] lg:text-xs text-slate-700">
+                        <thead class="sticky top-0 bg-[#f8fafc] z-10 text-center font-bold text-[#1a2b4b]">
+                            <tr>
+                                <th class="px-2 py-2.5" rowspan="3">No</th>
+                                <th class="px-3 py-2.5" rowspan="3">Project</th>
+                                <th class="px-2 py-2.5" rowspan="3">PIC</th>
+                                <th class="px-2 py-2.5" colspan="4">Mar 26</th>
+                                <th class="px-2 py-2.5" colspan="4">Apr 26</th>
+                            </tr>
+                            <tr>
+                                <th class="px-2 py-2" colspan="2">Submission date</th>
+                                <th class="px-2 py-2" rowspan="2">Status</th>
+                                <th class="px-2 py-2" rowspan="2">Remarks</th>
+                                <th class="px-2 py-2" colspan="2">Submission date</th>
+                                <th class="px-2 py-2" rowspan="2">Status</th>
+                                <th class="px-2 py-2" rowspan="2">Remarks</th>
+                            </tr>
+                            <tr>
+                                <th class="px-2 py-2">Closing Finance</th>
+                                <th class="px-2 py-2">Send Email</th>
+                                <th class="px-2 py-2">Closing Finance</th>
+                                <th class="px-2 py-2">Send Email</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body" class="bg-white"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- CHART SECTION -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 shrink-0">
+                
+                <!-- Chart 1: By PIC -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 md:p-6 flex flex-col items-center justify-center relative min-h-[160px]">
+                    <h4 class="text-[#1a2b4b] font-bold mb-4 uppercase tracking-wider text-xs">BAK SUBMISSION BY PIC</h4>
+                    
+                    <div class="relative mb-4">
+                        <div class="chart-pie-1 shadow-md border border-slate-100"></div>
+                        <div class="absolute -top-1 left-2 text-white text-[10px] font-bold drop-shadow-md">6%</div>
+                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-xs font-bold drop-shadow-md">94%</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-6 mt-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-sm bg-[#0f4c75]"></div>
+                            <span class="text-xs font-bold text-slate-600 uppercase">Heru (94%)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-sm bg-[#e97a3a]"></div>
+                            <span class="text-xs font-bold text-slate-600 uppercase">Dwi (6%)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Status -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 md:p-6 flex flex-col items-center justify-center relative min-h-[160px]">
+                    <h4 class="text-[#1a2b4b] font-bold mb-4 uppercase tracking-wider text-xs">BAK SUBMISSION DATE STATUS</h4>
+                    
+                    <div class="relative mb-4">
+                        <div class="chart-pie-2 shadow-md border border-slate-100 flex items-center justify-center">
+                            <span class="text-white font-bold text-sm mt-8 drop-shadow-md">100%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-6 mt-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-sm bg-[#0f4c75]"></div>
+                            <span class="text-xs font-bold text-slate-600 uppercase">On Time (100%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- FOOTER NAVIGATION (Opsional, bisa dihapus jika sudah ada navigasi slide) -->
+        <footer class="shrink-0 mt-4 h-14 bg-white border border-slate-200 rounded-xl px-4 flex items-center justify-between shadow-sm">
+            <button class="flex items-center gap-2 px-4 py-2 text-slate-600 font-medium hover:bg-slate-50 transition-colors rounded-lg border border-transparent hover:border-slate-200">
+                <i data-lucide="chevron-left" class="w-4 h-4"></i> Previous
+            </button>
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-slate-200"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200"></div>
+                <div class="w-8 h-2 rounded-full bg-indigo-600"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200"></div>
+                <div class="w-2 h-2 rounded-full bg-slate-200"></div>
+            </div>
+
+            <button class="flex items-center gap-2 px-4 py-2 text-indigo-700 bg-indigo-50 border border-indigo-100 font-medium hover:bg-indigo-600 hover:text-white transition-colors rounded-lg group">
+                Next <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT: Inisialisasi Icon + Data Tabel -->
+    <script>
+        // Jalankan fungsi Lucide untuk menampilkan icon
+        lucide.createIcons();
+
+        // DATA TABEL (Sesuai gambar)
+        const data = [
+            {no: 1, proj: 'Tiktok TnS', pic: 'Heru', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'},
+            {no: 2, proj: 'Tiktok GEC MOD', pic: 'Heru', c1: '02 Apr 2026', s1: '02 Apr 2026', c2: '04 May 2026', s2: '01 May 2026'},
+            {no: 3, proj: 'Tiktok GEC PQL', pic: 'Heru', c1: '02 Apr 2026', s1: '02 Apr 2026', c2: '04 May 2026', s2: '01 May 2026'},
+            {no: 4, proj: 'Tiktok GEC KG', pic: 'Heru', c1: '02 Apr 2026', s1: '02 Apr 2026', c2: '04 May 2026', s2: '01 May 2026'},
+            {no: 5, proj: 'Tiktok GEC SEA', pic: 'Heru', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'},
+            {no: 6, proj: 'Tiktok GEC SEMI', pic: 'Heru', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'},
+            {no: 7, proj: 'Tiktok GEC CS', pic: 'Heru', c1: '02 Apr 2026', s1: '02 Apr 2026', c2: '04 May 2026', s2: '01 May 2026'},
+            {no: 8, proj: 'Tiktok GEC SPG', pic: 'Heru', c1: '02 Apr 2026', s1: '02 Apr 2026', c2: '04 May 2026', s2: '01 May 2026'},
+            {no: 9, proj: 'Tiktok GEC- SPS', pic: 'Heru', c1: '02 Apr 2026', s1: '02 Apr 2026', c2: '04 May 2026', s2: '01 May 2026'},
+            {no: 10, proj: 'TikTok BNPL', pic: 'Heru', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'},
+            {no: 11, proj: 'Shein', pic: 'Dwi', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'},
+            {no: 12, proj: 'Lazada', pic: 'Heru', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'},
+            {no: 13, proj: 'Lazada Bizrisk', pic: 'Heru', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'},
+            {no: 14, proj: 'Anker', pic: 'Heru', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'},
+            {no: 15, proj: 'Temu YGY', pic: 'Heru', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'},
+            {no: 16, proj: 'Trip.com', pic: 'Heru', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'},
+            {no: 17, proj: 'MAP', pic: 'Heru', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'},
+            {no: 18, proj: 'Tiket.com', pic: 'Heru', c1: '02 Apr 2026', s1: '01 Apr 2026', c2: '04 May 2026', s2: '30 Apr 2026'}
+        ];
+
+        // Template Badge Status Hijau
+        const badge = '<span class="bg-[#e6f6ec] text-[#1aa053] font-medium px-2 py-0.5 rounded-full inline-block border border-[#c3ebce]">On Time</span>';
+
+        // Render Tabel
+        const tbody = document.getElementById('table-body');
+        tbody.innerHTML = data.map(d => `
+            <tr class="hover:bg-slate-50 transition-colors">
+                <td class="px-2 py-2 text-center text-slate-500 font-medium">${d.no}</td>
+                <td class="px-3 py-2 font-medium text-[#1a2b4b]">${d.proj}</td>
+                <td class="px-2 py-2 text-center">${d.pic}</td>
+                <td class="px-2 py-2 text-center">${d.c1}</td>
+                <td class="px-2 py-2 text-center">${d.s1}</td>
+                <td class="px-2 py-2 text-center">${badge}</td>
+                <td class="px-2 py-2 text-center"></td>
+                <td class="px-2 py-2 text-center">${d.c2}</td>
+                <td class="px-2 py-2 text-center">${d.s2}</td>
+                <td class="px-2 py-2 text-center">${badge}</td>
+                <td class="px-2 py-2 text-center"></td>
+            </tr>
+        `).join('');
+    </script>
+</body>
+</html>
 
 
                 
