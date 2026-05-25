@@ -263,7 +263,7 @@
                                     <i data-lucide="target" class="w-4 h-4 shrink-0"></i> Current Condition
                                 </div>
                                 <div class="p-4 flex-1 overflow-y-auto flex items-center justify-center bg-slate-50">
-                                    <img src="HC MANAGEMENT EXCEL.png" class="max-w-full h-auto rounded-lg shadow-md border border-slate-200 object-contain max-h-[400px]">
+                                    <img src="SEAT MAPPING OCCUPANCY EXCEL.png" class="max-w-full h-auto rounded-lg shadow-md border border-slate-200 object-contain max-h-[400px]">
                                 </div>
                             </div>
                             
@@ -273,7 +273,7 @@
                                     <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i> Next Plan
                                 </div>
                                 <div class="p-4 flex-1 overflow-y-auto flex items-center justify-center bg-slate-50">
-                                    <img src="TRANSFORCE HC MANAGEMENT.png" alt="Next Plan: Transforce HC Management" class="max-w-full h-auto rounded-lg shadow-md border border-slate-200 object-contain max-h-[400px]">
+                                    <img src="TRANSFORCE FACILITY TRACKER.png" alt="Next Plan: Transforce HC Management" class="max-w-full h-auto rounded-lg shadow-md border border-slate-200 object-contain max-h-[400px]">
                                 </div>
                             </div>
                         </div>
@@ -361,7 +361,7 @@
                                     <i data-lucide="target" class="w-4 h-4 shrink-0"></i> Current Condition
                                 </div>
                                 <div class="p-4 flex-1 overflow-y-auto flex items-center justify-center bg-slate-50">
-                                    <img src="HC MANAGEMENT EXCEL.png" class="max-w-full h-auto rounded-lg shadow-md border border-slate-200 object-contain max-h-[400px]">
+                                    <img src="BILLING SUMMARY EXCEL.png" class="max-w-full h-auto rounded-lg shadow-md border border-slate-200 object-contain max-h-[400px]">
                                 </div>
                             </div>
                             
@@ -371,7 +371,7 @@
                                     <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i> Next Plan
                                 </div>
                                 <div class="p-4 flex-1 overflow-y-auto flex items-center justify-center bg-slate-50">
-                                    <img src="TRANSFORCE HC MANAGEMENT.png" alt="Next Plan: Transforce HC Management" class="max-w-full h-auto rounded-lg shadow-md border border-slate-200 object-contain max-h-[400px]">
+                                    <img src="TRANSFORCE PL ANALYSIS.png" alt="Next Plan: Transforce HC Management" class="max-w-full h-auto rounded-lg shadow-md border border-slate-200 object-contain max-h-[400px]">
                                 </div>
                             </div>
                         </div>
@@ -380,846 +380,148 @@
 
 
 
-<!-- SLIDE 8 : BILLING RECAP -->
-<div class="slide p-4 md:p-6 overflow-hidden w-full h-full flex flex-col bg-slate-100">
+<style>
+    body { font-family: 'Inter', sans-serif; background-color: #f4f6fa; }
+    .table-container::-webkit-scrollbar { ... }
+    .chart-pie-1 { width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(#e97a3a 0% 6%, #0f4c75 6% 100%); }
+    .chart-pie-2 { width: 120px; height: 120px; border-radius: 50%; background: #0f4c75; }
+    th { border-color: #e2e8f0; border-width: 1px; }
+    td { border-color: #e2e8f0; border-width: 1px; }
+</style>
 
-    <!-- HEADER -->
-    <div class="flex items-center gap-4 pb-4 border-b border-slate-200 shrink-0">
 
-        <div class="w-14 h-14 rounded-2xl bg-indigo-100 flex items-center justify-center shadow-sm">
-            <i data-lucide="pie-chart" class="w-7 h-7 text-indigo-600"></i>
-        </div>
+                <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        <div>
-            <h2 class="text-3xl font-bold text-slate-800">
-                Billing Recap & Performance
-            </h2>
 
-            <p class="text-slate-500 text-sm mt-1">
-                Monthly submission monitoring and performance overview
-            </p>
-        </div>
 
+                <!-- 1. Header Judul -->
+<div class="flex items-start gap-4 mb-4">
+    <div class="p-3 bg-indigo-50 text-indigo-700 rounded-xl shrink-0 border border-indigo-100 shadow-sm">
+        <i data-lucide="pie-chart" class="w-8 h-8"></i>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <div class="flex-1 overflow-hidden flex flex-col gap-3 pt-4">
-
-        <!-- TABLE CARD -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col min-h-0">
-
-            <!-- TABLE HEADER -->
-            <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between shrink-0">
-
-                <div>
-                    <h3 class="text-2xl font-bold text-slate-800">
-                        Submission Date Monitoring
-                    </h3>
-
-                    <p class="text-slate-500 text-sm">
-                        Monitoring submission timeline by project and PIC
-                    </p>
-                </div>
-
-                <div class="px-5 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold text-sm">
-                    100% On Time
-                </div>
-
-            </div>
-
-            <!-- TABLE -->
-            <div class="flex-1 overflow-auto">
-
-                <table class="w-full border-collapse text-sm">
-
-                    <thead class="sticky top-0 z-10">
-
-                        <tr class="bg-slate-100 text-slate-800">
-
-                            <th rowspan="3" class="border border-slate-300 px-3 py-3 text-center font-bold">
-                                No
-                            </th>
-
-                            <th rowspan="3" class="border border-slate-300 px-4 py-3 text-center font-bold">
-                                Project
-                            </th>
-
-                            <th rowspan="3" class="border border-slate-300 px-4 py-3 text-center font-bold">
-                                PIC
-                            </th>
-
-                            <th colspan="4" class="border border-slate-300 px-4 py-3 text-center font-bold bg-slate-50">
-                                Mar 26
-                            </th>
-
-                            <th colspan="4" class="border border-slate-300 px-4 py-3 text-center font-bold bg-slate-50">
-                                Apr 26
-                            </th>
-
-                        </tr>
-
-                        <tr class="bg-slate-100 text-slate-700">
-
-                            <th colspan="2" class="border border-slate-300 px-3 py-2 text-center">
-                                Submission Date
-                            </th>
-
-                            <th rowspan="2" class="border border-slate-300 px-3 py-2 text-center">
-                                Status
-                            </th>
-
-                            <th rowspan="2" class="border border-slate-300 px-3 py-2 text-center">
-                                Remarks
-                            </th>
-
-                            <th colspan="2" class="border border-slate-300 px-3 py-2 text-center">
-                                Submission Date
-                            </th>
-
-                            <th rowspan="2" class="border border-slate-300 px-3 py-2 text-center">
-                                Status
-                            </th>
-
-                            <th rowspan="2" class="border border-slate-300 px-3 py-2 text-center">
-                                Remarks
-                            </th>
-
-                        </tr>
-
-                        <tr class="bg-slate-100 text-slate-700">
-
-                            <th class="border border-slate-300 px-3 py-2 text-center">
-                                Closing Finance
-                            </th>
-
-                            <th class="border border-slate-300 px-3 py-2 text-center">
-                                Send Email
-                            </th>
-
-                            <th class="border border-slate-300 px-3 py-2 text-center">
-                                Closing Finance
-                            </th>
-
-                            <th class="border border-slate-300 px-3 py-2 text-center">
-                                Send Email
-                            </th>
-
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">1</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-                        <!-- DUPLICATE ROW -->
-                        <!-- COPY ROW DI ATAS SAMPAI 18 -->
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">2</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">3</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">4</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">5</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">6</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">7</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">8</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">9</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-
-                                                <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">10</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">11</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">12</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">13</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-                        
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">14</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">15</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">16</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-                                                <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">17</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-
-                        <!-- ROW -->
-                        <tr class="hover:bg-slate-50">
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">18</td>
-                            <td class="border border-slate-200 px-3 py-2">TikTok TnS</td>
-                            <td class="border border-slate-200 px-3 py-2">Heru</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">02 Apr 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">01 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">04 May 2026</td>
-                            <td class="border border-slate-200 px-3 py-2 text-center">30 Apr 2026</td>
-
-                            <td class="border border-slate-200 px-3 py-2 text-center">
-                                <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
-                                    On Time
-                                </span>
-                            </td>
-
-                            <td class="border border-slate-200 px-3 py-2"></td>
-
-                        </tr>
-
-                        
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
-        <!-- CHART SECTION -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 h-[260px] shrink-0">
-
-            <!-- CHART 1 -->
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-3 overflow-auto">
-
-                <h3 class="text-center font-bold text-slate-700 text-lg mb-2">
-                    BAK SUBMISSION BY PIC
-                </h3>
-
-                <div class="min-w-[420px] min-h-[220px] flex items-center justify-center">
-
-                    <div class="relative w-[320px] h-[180px]">
-
-                        <!-- SHADOW -->
-                        <div class="absolute left-1/2 top-[78px] -translate-x-1/2 w-[190px] h-[45px] rounded-full bg-slate-900 opacity-15 blur-xl"></div>
-
-                        <!-- THICKNESS -->
-                        <div
-                            class="absolute left-1/2 top-[88px] -translate-x-1/2 w-[190px] h-[55px] rounded-full"
-                            style="
-                                background:
-                                linear-gradient(
-                                    to right,
-                                    #082f49,
-                                    #0f4c75,
-                                    #082f49
-                                );
-                            ">
-                        </div>
-
-                        <!-- PIE -->
-                        <div
-                            class="absolute left-1/2 top-[30px] -translate-x-1/2 w-[190px] h-[110px] rounded-full border-2 border-white"
-                            style="
-                                background:
-                                conic-gradient(
-                                    #0f4c75 0% 94%,
-                                    #f08a34 94% 100%
-                                );
-                            ">
-                        </div>
-
-                        <!-- LABEL -->
-                        <div class="absolute bottom-[8px] right-[52px] bg-white border border-slate-300 rounded-md px-2 py-1 text-xs font-bold text-slate-600 shadow-sm">
-                            94%
-                        </div>
-
-                        <div class="absolute top-[6px] left-[136px] bg-white border border-slate-300 rounded-md px-2 py-1 text-xs font-bold text-slate-600 shadow-sm">
-                            6%
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- LEGEND -->
-                <div class="flex justify-center gap-6 text-sm text-slate-600 mt-2">
-
-                    <div class="flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-sm bg-[#0f4c75]"></span>
-                        HERU (94%)
-                    </div>
-
-                    <div class="flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-sm bg-[#f08a34]"></span>
-                        DWI (6%)
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CHART 2 -->
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-3 overflow-auto">
-
-                <h3 class="text-center font-bold text-slate-700 text-lg mb-2">
-                    BAK SUBMISSION DATE STATUS
-                </h3>
-
-                <div class="min-w-[420px] min-h-[220px] flex items-center justify-center">
-
-                    <div class="relative w-[320px] h-[180px]">
-
-                        <!-- SHADOW -->
-                        <div class="absolute left-1/2 top-[78px] -translate-x-1/2 w-[190px] h-[45px] rounded-full bg-slate-900 opacity-15 blur-xl"></div>
-
-                        <!-- THICKNESS -->
-                        <div
-                            class="absolute left-1/2 top-[88px] -translate-x-1/2 w-[190px] h-[55px] rounded-full"
-                            style="
-                                background:
-                                linear-gradient(
-                                    to right,
-                                    #082f49,
-                                    #0f4c75,
-                                    #082f49
-                                );
-                            ">
-                        </div>
-
-                        <!-- PIE -->
-                        <div
-                            class="absolute left-1/2 top-[30px] -translate-x-1/2 w-[190px] h-[110px] rounded-full border-2 border-white"
-                            style="background:#0f4c75;">
-                        </div>
-
-                        <!-- LABEL -->
-                        <div class="absolute bottom-[8px] left-[130px] bg-white border border-slate-300 rounded-md px-2 py-1 text-xs font-bold text-slate-600 shadow-sm">
-                            100%
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- LEGEND -->
-                <div class="flex justify-center gap-6 text-sm text-slate-600 mt-2">
-
-                    <div class="flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-sm bg-[#0f4c75]"></span>
-                        ON TIME (100%)
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+    <div class="flex flex-col">
+        <h1 class="text-3xl font-extrabold text-[#1a2b4b] tracking-tight leading-tight">
+            Billing Recap & Performance
+        </h1>
+        <p class="text-slate-500 font-medium text-sm mt-1">
+            Monthly submission monitoring and performance overview
+        </p>
     </div>
-
 </div>
+
+<!-- 2. Tabel Monitoring -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col mb-4">
+    <!-- Header Tabel -->
+    <div class="px-5 py-3.5 flex items-center justify-between border-b border-slate-200 shrink-0 bg-white">
+        <h3 class="font-bold text-[#1a2b4b] text-base">Submission Date Monitoring</h3>
+        <div class="bg-[#e6f6ec] text-[#1aa053] font-bold text-xs px-3 py-1.5 rounded-full border border-[#c3ebce]">
+            100% On Time
+        </div>
+    </div>
+    <!-- Konten Tabel (Pastikan ID table-body tetap ada) -->
+    <div class="overflow-auto table-container" style="max-height: 300px;">
+        <table id="data-table" class="w-full text-left border-collapse text-xs text-slate-700">
+            <thead class="sticky top-0 bg-[#f8fafc] z-10 text-center font-bold text-[#1a2b4b]">
+                <!-- Struktur Tabel sama persis seperti di kode asli -->
+                <tr>
+                    <th class="px-2 py-2.5" rowspan="3">No</th>
+                    <th class="px-3 py-2.5" rowspan="3">Project</th>
+                    <th class="px-2 py-2.5" rowspan="3">PIC</th>
+                    <th class="px-2 py-2.5" colspan="4">Mar 26</th>
+                    <th class="px-2 py-2.5" colspan="4">Apr 26</th>
+                </tr>
+                <tr>
+                    <th class="px-2 py-2" colspan="2">Submission date</th>
+                    <th class="px-2 py-2" rowspan="2">Status</th>
+                    <th class="px-2 py-2" rowspan="2">Remarks</th>
+                    <th class="px-2 py-2" colspan="2">Submission date</th>
+                    <th class="px-2 py-2" rowspan="2">Status</th>
+                    <th class="px-2 py-2" rowspan="2">Remarks</th>
+                </tr>
+                <tr>
+                    <th class="px-2 py-2">Closing Finance</th>
+                    <th class="px-2 py-2">Send Email</th>
+                    <th class="px-2 py-2">Closing Finance</th>
+                    <th class="px-2 py-2">Send Email</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- 3. Charts -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Chart 1 (By PIC) -->
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col items-center justify-center">
+        <h4 class="text-[#1a2b4b] font-bold mb-4 uppercase tracking-wider text-xs">BAK SUBMISSION BY PIC</h4>
+        <div class="relative mb-4">
+            <div class="chart-pie-1 shadow-md border border-slate-100"></div>
+            <div class="absolute -top-1 left-2 text-white text-[10px] font-bold drop-shadow-md">6%</div>
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-xs font-bold drop-shadow-md">94%</div>
+        </div>
+        <div class="flex items-center gap-6 mt-2">
+            <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-sm bg-[#0f4c75]"></div>
+                <span class="text-xs font-bold text-slate-600 uppercase">Heru (94%)</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-sm bg-[#e97a3a]"></div>
+                <span class="text-xs font-bold text-slate-600 uppercase">Dwi (6%)</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chart 2 (Status) -->
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col items-center justify-center">
+        <h4 class="text-[#1a2b4b] font-bold mb-4 uppercase tracking-wider text-xs">BAK SUBMISSION DATE STATUS</h4>
+        <div class="relative mb-4">
+            <div class="chart-pie-2 shadow-md border border-slate-100 flex items-center justify-center">
+                <span class="text-white font-bold text-sm mt-8 drop-shadow-md">100%</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-6 mt-2">
+            <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-sm bg-[#0f4c75]"></div>
+                <span class="text-xs font-bold text-slate-600 uppercase">On Time (100%)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                lucide.createIcons();
+
+const data = [
+    {no:1, proj:'Tiktok TnS', pic:'Heru', c1:'02 Apr 2026', s1:'01 Apr 2026', c2:'04 May 2026', s2:'30 Apr 2026'},
+    // ... (masukkan semua data dari kode asli Anda)
+    {no:18, proj:'Tiket.com', pic:'Heru', c1:'02 Apr 2026', s1:'01 Apr 2026', c2:'04 May 2026', s2:'30 Apr 2026'}
+];
+
+const badge = '<span class="bg-[#e6f6ec] text-[#1aa053] font-medium px-2 py-0.5 rounded-full inline-block border border-[#c3ebce]">On Time</span>';
+
+const tbody = document.getElementById('table-body');
+tbody.innerHTML = data.map(d => `
+    <tr class="hover:bg-slate-50 transition-colors">
+        <td class="px-2 py-2 text-center text-slate-500 font-medium">${d.no}</td>
+        <td class="px-3 py-2 font-medium text-[#1a2b4b]">${d.proj}</td>
+        <td class="px-2 py-2 text-center">${d.pic}</td>
+        <td class="px-2 py-2 text-center">${d.c1}</td>
+        <td class="px-2 py-2 text-center">${d.s1}</td>
+        <td class="px-2 py-2 text-center">${badge}</td>
+        <td class="px-2 py-2 text-center"></td>
+        <td class="px-2 py-2 text-center">${d.c2}</td>
+        <td class="px-2 py-2 text-center">${d.s2}</td>
+        <td class="px-2 py-2 text-center">${badge}</td>
+        <td class="px-2 py-2 text-center"></td>
+    </tr>
+`).join('');
+
+
+
+                
 
                 
                 
