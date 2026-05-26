@@ -691,20 +691,25 @@
         const btnNext = document.getElementById('btn-next');
         const btnNextText = document.getElementById('btn-next-text');
 
-        // === SUNTIKKAN LOGO TRANSCOSMOS KE SETIAP SLIDE ===
-        // Ganti 'transcosmos_logo.png' dengan nama file atau URL logo Anda
-        const logoHTML = `<div class="flex-shrink-0 ml-auto">
-            <img src="transcosmos logo.png" alt="Transcosmos Logo" class="h-8 w-auto object-contain">
-        </div>`;
+// === SUNTIKKAN LOGO TRANSCOSMOS KE SETIAP SLIDE ===
+const logoHTML = `<div class="flex-shrink-0 ml-auto">
+    <img src="transcosmos_logo.png" alt="Transcosmos Logo" class="h-8 w-auto object-contain">
+</div>`;
 
-        slides.forEach(slide => {
-            // Cari elemen header di dalam slide
-            const header = slide.querySelector('header');
-            if (header) {
-                // Tambahkan logo di sebelah kanan header
-                header.insertAdjacentHTML('beforeend', logoHTML);
-            }
-        });
+slides.forEach((slide, index) => {
+    // Cari elemen header di dalam slide
+    const header = slide.querySelector('header');
+    if (header) {
+        // Slide 2-11: Tambahkan logo di dalam header
+        header.insertAdjacentHTML('beforeend', logoHTML);
+    } else if (index === 0) {
+        // Slide 1 (Judul): Tambahkan logo secara absolute di pojok kanan atas
+        // Pastikan slide memiliki position: relative di CSS
+        slide.insertAdjacentHTML('afterbegin', 
+            `<div class="absolute top-4 right-4 z-20">${logoHTML}</div>`
+        );
+    }
+});
 
 
         // Render Navigation Dots
